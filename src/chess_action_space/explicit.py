@@ -5,7 +5,9 @@ This file is generated, do not modify it directly!
 import chess
 
 ACTION_SPACE_SIZE = 1924
-"""The number of moves in the minimal discrete action space in chess."""
+"""
+The number of moves in the minimal discrete action space in chess.
+"""
 
 ACTION_SPACE = (
     chess.Move.from_uci('a1b1'),
@@ -1933,4 +1935,6 @@ ACTION_SPACE = (
     chess.Move.from_uci('h8f8'),
     chess.Move.from_uci('h8g8'),
 )
-"""All 1924 moves in the minimal discrete action space in chess."""
+"""
+All 1924 moves in the minimal discrete action space in chess.
+"""

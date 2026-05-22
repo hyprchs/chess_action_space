@@ -64,23 +64,26 @@ def iter_action_space(fast: bool = True) -> Iterable[chess.Move]:
 
 
 def _gen_explicit_py() -> None:
-    """Refresh the file `explicit.py`."""
+    """
+    Refresh the file `explicit.py`.
+    """
 
     explicit_py_path = Path(__file__).parent / 'explicit.py'
+    docstring_quote = '"' * 3
 
-    s = '"""\nThis file is generated, do not modify it directly!\n"""'
+    s = f'{docstring_quote}\nThis file is generated, do not modify it directly!\n{docstring_quote}'
 
     s += '\n\nimport chess'
 
     action_space_size = get_action_space_size(fast=False)
     s += f'\n\nACTION_SPACE_SIZE = {action_space_size}'
-    s += '\n"""The number of moves in the minimal discrete action space in chess."""'
+    s += f'\n{docstring_quote}\nThe number of moves in the minimal discrete action space in chess.\n{docstring_quote}'
 
     s += '\n\nACTION_SPACE = ('
     for move in iter_action_space(fast=False):
         s += f"\n    chess.Move.from_uci('{move.uci()}'),"
     s += '\n)'
-    s += f'\n"""All {action_space_size} moves in the minimal discrete action space in chess."""'
+    s += f'\n{docstring_quote}\nAll {action_space_size} moves in the minimal discrete action space in chess.\n{docstring_quote}'
 
     s += '\n'
 
